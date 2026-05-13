@@ -21,14 +21,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
         lv=findViewById(R.id.listview);
         //recuperar dados datasource
         PlanetaController pcontroller = new PlanetaController();
 
-        AdapterPlaneta adaptador = new AdapterPlaneta(
-                this,
-                pcontroller.listaPlanetas();
-        )
+        AdapterPlaneta adaptador = new AdapterPlaneta(getApplicationContext(),R.layout.item_lista,pcontroller.listaPlanetas());
         lv.setAdapter(adaptador);
 
 
